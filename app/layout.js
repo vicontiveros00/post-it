@@ -6,15 +6,20 @@ export default function RootLayout({ children }) {
   return (
     <html>
       <body>
+        <nav>
+            <h1 className="nav-header">
+              Note app
+            </h1>
+            <div className="nav-items">
+              <Link href="/">
+                Home
+              </Link>
+              <Link href="/notes">
+                Notes
+              </Link>
+            </div>
+        </nav>
         <main>
-          <nav>
-            <Link href="/">
-              Home
-            </Link>
-            <Link href="/notes">
-              Notes
-            </Link>
-          </nav>
           {children}
         </main>
       </body>

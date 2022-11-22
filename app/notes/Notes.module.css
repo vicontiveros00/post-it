@@ -77,3 +77,7 @@
   .username {
     margin: 0 !important;
   }
+
+  .form-item {
+    border: 1px solid blue;
+  }

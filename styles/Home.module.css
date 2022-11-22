@@ -108,6 +108,10 @@
   margin-left: 0.5rem;
 }
 
+.form-item {
+  border: 5px solid blue;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
