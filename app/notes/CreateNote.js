@@ -51,7 +51,7 @@ export default function CreateNote() {
         onChange={(e) => setUserName(e.target.value)}
       />
       <textarea
-        placeholder="Content *" maxLength="300"
+        placeholder="Content * (150 max)" maxLength="150"
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
