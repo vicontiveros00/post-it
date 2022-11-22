@@ -40,12 +40,14 @@ export default function CreateNote() {
       <h3>Create a new Note</h3>
       <input
         type="text"
+        maxLength="15"
         placeholder="Title *"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <input
         type="text"
+        maxLength="15"
         placeholder="User Name (Optional)"
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
