@@ -53,3 +53,11 @@
   textarea {
     resize: none;
   }
+
+  .online {
+    color: green;
+  }
+
+  .offline {
+    color: red;
+  }
