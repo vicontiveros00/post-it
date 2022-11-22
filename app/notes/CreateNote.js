@@ -15,7 +15,7 @@ export default function CreateNote() {
     setIsUpdating(true)
     const username = userName || 'anonymous'
 
-    await fetch('https://c8b8-85-156-145-51.eu.ngrok.io/api/collections/notes/records/', {
+    await fetch('https://178b-85-156-145-51.eu.ngrok.io/api/collections/notes/records/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
