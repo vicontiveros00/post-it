@@ -26,7 +26,7 @@ export default function CheckApi() {
         } else if (apiStatus === 'checking...') {
             return '';
         } else {
-            return 'API is currently down. You cannot view or post notes. Check back later.'
+            return 'API is currently down. You cannot view or post notes. Check back later. My electric bill would be massive if this was online constantly.'
         }
     }
 
