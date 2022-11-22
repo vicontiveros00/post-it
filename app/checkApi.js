@@ -12,7 +12,7 @@ export default function CheckApi() {
                 cache: 'no-cache',
                 mode: 'no-cors'
             })
-            response.ok ? setApiStatus('online') : setApiStatus('offline')
+            !response.ok ? setApiStatus('online') : setApiStatus('offline')
         }
         
     
