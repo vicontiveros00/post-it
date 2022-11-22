@@ -7,16 +7,17 @@ export default function CheckApi() {
     const [apiStatus, setApiStatus] = useState('checking...');
 
     const checkApi = async() => {
-        try {
-            await fetch('https://178b-85-156-145-51.eu.ngrok.io/api/collections/notes/records/', {
+            const res = await fetch('https://178b-85-156-145-51.eu.ngrok.io/api/collections/notes/records/', {
                 cache: 'no-cache',
                 mode: 'no-cors'
             })
-        } catch {
-            setApiStatus('offline');
+            if (res.ok) {
+                setApiStatus('online')
+            } else {
+                setApiStatus('offline')
+            }
         }
-        setApiStatus('online');
-    }
+        
     
     checkApi();
 
