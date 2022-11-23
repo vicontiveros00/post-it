@@ -78,6 +78,29 @@
     margin: 0 !important;
   }
 
-  .form-item {
-    border: 1px solid blue;
+  .formWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid black;
+    margin: 0 auto 1rem;
+    width: 350px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+
+  .formHeader {
+    background-color: lightblue;
+    margin: 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  
+  @media only screen and (max-width: 605px) {
+    .grid {
+      justify-content: center;
+    }  
   }

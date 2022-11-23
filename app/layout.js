@@ -16,14 +16,14 @@ export default function RootLayout({ children }) {
             <h1 className="nav-header">
               Note app
             </h1>
-            <div className="nav-items">
+              <div>
               <Link href="/">
                 Home
               </Link>
               <Link href="/notes">
                 Notes
               </Link>
-            </div>
+              </div>
         </nav>
         <main>
           {children}

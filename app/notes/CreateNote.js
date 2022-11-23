@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import styles from './Notes.module.css';
 
 export default function CreateNote() {
   const [title, setTitle] = useState('');
@@ -37,29 +38,34 @@ export default function CreateNote() {
 
   return (
     <div>
-      <h3>Create a new Note</h3>
-      <input
-        type="text"
-        maxLength="15"
-        placeholder="Title *"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="text"
-        maxLength="15"
-        placeholder="User Name (Optional)"
-        value={userName}
-        onChange={(e) => setUserName(e.target.value)}
-      />
-      <textarea
-        placeholder="Content * (150 max)" maxLength="150"
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-      />
-      <button disabled={isUpdating} type="submit" onClick={title && content ? create : undefined}>
-        Create note
-      </button>
+      <div className={styles.formWrapper}>
+        <h3 className={styles.formHeader}>Create a new Note</h3>     
+        <input
+          type="text"
+          maxLength="15"
+          placeholder="Title *"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          maxLength="15"
+          placeholder="User Name (Optional)"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <textarea
+          placeholder="Content * (150 max)" maxLength="150"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+        <button 
+          disabled={isUpdating} 
+          type="submit" 
+          onClick={title && content ? create : undefined}>
+            Create note
+        </button>
+      </div>
     </div>
   );
 }
