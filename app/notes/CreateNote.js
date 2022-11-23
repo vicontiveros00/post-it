@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { TailSpin } from 'react-loader-spinner';
+import styles from './Notes.module.css';
 
 export default function CreateNote() {
   const [title, setTitle] = useState('');
@@ -58,8 +60,9 @@ export default function CreateNote() {
         onChange={(e) => setContent(e.target.value)}
       />
       <button disabled={isUpdating} type="submit" onClick={title && content ? create : undefined}>
-        Create note
+        {isUpdating ? <TailSpin padding='200' height='15' width='15' color='#fff' /> : 'Create Note'}
       </button>
+        
     </div>
   );
 }

@@ -77,3 +77,8 @@
   .username {
     margin: 0 !important;
   }
+
+  .spinner {
+    display: inline-block;
+    margin-left: 1rem;
+  }
