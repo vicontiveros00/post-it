@@ -3,7 +3,10 @@ import CreateNote from './CreateNote';
 import styles from './Notes.module.css';
 
 async function getNotes() {
-    const res = await fetch('https://178b-85-156-145-51.eu.ngrok.io/api/collections/notes/records/?page=1&perPage=30', { cache: 'no-store' });
+    const res = await fetch('https://569a-85-156-145-51.eu.ngrok.io/api/collections/notes/records/?page=1&perPage=30', {
+        cache: 'no-store',
+        mode: 'no-cors'
+    });
     const data = await res.json();
     return data.items;
 }
