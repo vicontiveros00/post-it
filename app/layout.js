@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body>
         <nav>
             <h1 className="nav-header">
-              Note app
+              Post it
             </h1>
               <div>
               <Link href="/">

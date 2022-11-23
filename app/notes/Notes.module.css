@@ -79,30 +79,49 @@
   }
 
   .formWrapper {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
-    border: 1px solid black;
-    margin: 0 auto 1rem;
-    width: 350px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    margin: 0.5rem 0.5rem;
+    height: 220px;
+    width: 200px;
+    box-shadow: 4px 4px 8px 1px #00000075;
+    border-radius: 2px;
   }
 
   .formHeader {
-    background-color: lightblue;
-    margin: 0;
+    background-color: #ffff00;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-    text-align: center;
+    text-align: start;
     width: 100%;
+    padding-left: 0.2rem;
+    font-weight: 400;
   }
 
-  
+  .submitBG {
+    background-color: #ffff00;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .formTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 3rem 0 2rem;
+  }
+
+  .userName {
+  font-size: 0.67em;
+  padding: 1.5rem 0;
+  }
+
   @media only screen and (max-width: 605px) {
     .grid {
       justify-content: center;
     }  
   }
+
 
     /* CSS made by Eetu Mäenpää/Wolteye https://github.com/WoltEye */

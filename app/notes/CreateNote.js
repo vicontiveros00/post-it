@@ -37,10 +37,9 @@ export default function CreateNote() {
   }
 
   return (
-    <div>
-      <div className={styles.formWrapper}>
-        <h3 className={styles.formHeader}>Create a new Note</h3>     
+      <div className={styles.formWrapper}>    
         <input
+          className={styles.formTitle}
           type="text"
           maxLength="15"
           placeholder="Title *"
@@ -48,6 +47,7 @@ export default function CreateNote() {
           onChange={(e) => setTitle(e.target.value)}
         />
         <input
+          className={styles.userName}
           type="text"
           maxLength="15"
           placeholder="User Name (Optional)"
@@ -59,13 +59,14 @@ export default function CreateNote() {
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
+        <div className={styles.submitBG}>
         <button 
           disabled={isUpdating} 
           type="submit" 
           onClick={title && content ? create : undefined}>
             Create note
         </button>
+        </div>
       </div>
-    </div>
   );
 }
