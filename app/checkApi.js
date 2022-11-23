@@ -6,18 +6,16 @@ import { useState } from 'react';
 export default function CheckApi() {
     const [apiStatus, setApiStatus] = useState('checking...');
 
-    async function checkApi() {
-            const res = await fetch('https://314a-85-156-145-51.eu.ngrok.io/api/collections/notes/records/', {
-                method: 'GET',
-                cache: 'no-cache',
-                mode: 'no-cors'
-            })
-            console.log(res.ok);
-            res.ok ? setApiStatus('online') : setApiStatus('offline')
-        }
-        
-    
-    checkApi();
+    const checkApiStatus = async() => {
+        const res = await fetch('https://569a-85-156-145-51.eu.ngrok.io/api/collections/notes/records/', {
+            cache: 'no-store',
+            mode: 'no-cors'
+        });
+        console.log(res.ok);
+        !res.ok ? setApiStatus('online') : setApiStatus('offline');
+    }
+
+    checkApiStatus();
 
     const getStatusText = () => {
         if (apiStatus === 'online') {
