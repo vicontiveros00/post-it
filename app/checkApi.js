@@ -7,7 +7,7 @@ export default function CheckApi() {
     const [apiStatus, setApiStatus] = useState('checking...');
 
     const checkApiStatus = async() => {
-        const res = await fetch('https://569a-85-156-145-51.eu.ngrok.io/api/collections/notes/records/', {
+        const res = await fetch('https://notesapi.fly.dev/api/collections/notes/records/', {
             cache: 'no-store',
             mode: 'no-cors'
         });
