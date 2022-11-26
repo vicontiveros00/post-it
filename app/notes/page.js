@@ -40,7 +40,8 @@ function Note({ note }) {
             <h2>{title}</h2>
             <h6 className={styles.username}>{username}</h6>
             <h5>{content}</h5>
-            <p>{date.toLocaleString('en-GB', {
+            <p>{date.toLocaleString({
+                hour12: false,
                 dateStyle: 'short',
                 timeStyle: 'short'
             })}</p>
