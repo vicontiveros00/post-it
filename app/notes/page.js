@@ -28,11 +28,15 @@ export default async function NotesPage() {
 }
 
 function Note({ note }) {
-    const { title, content, username, created } = note || {};
+    const { title, content, username, notecolor, created, admin } = note || {};
     const date = new Date(created) || null;
+    const adminGlow = `4px 4px 12px #fc8b8b, -4px -4px 12px #fc8b8b, 4px -4px 12px #fc8b8b, -4px 4px 12px #fc8b8b`;
 
     return (
-        <div className={styles.note}>
+        <div className={styles.note} style={{
+            backgroundColor: notecolor ? notecolor : '#fff740',
+            boxShadow: admin ?  adminGlow : ''
+            }}>
             <h2>{title}</h2>
             <h6 className={styles.username}>{username}</h6>
             <h5>{content}</h5>

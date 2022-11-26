@@ -34,6 +34,7 @@
   }
   
   button {
+    margin-top: 0.5rem;
     background-color: #000000;
     border: none;
     color: white;
@@ -60,4 +61,25 @@
 
   .offline {
     color: red;
+  }
+  
+  input[type='radio'] {
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
+  input[id='yellow'] {
+    accent-color: #fff740;
+  }
+
+  input[id='pink'] {
+    accent-color: #ff7eb9;
+  }
+
+  input[id='blue'] {
+    accent-color: #7afcff;
+  }
+
+  input[id='green'] {
+    accent-color: #82ffa3;
   }
