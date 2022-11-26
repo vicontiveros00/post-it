@@ -3,7 +3,7 @@ import CreateNote from './CreateNote';
 import styles from './Notes.module.css';
 
 async function getNotes() {
-    const res = await fetch('https://notesapi.fly.dev/api/collections/notes/records/?page=1&perPage=30', {
+    const res = await fetch('https://notesapi.fly.dev/api/collections/notes/records/?page=1&perPage=30', { //old url was https://notesapi.fly.dev/api/collections/notes/records/?page=1&perPage=30
         cache: 'no-store',
         mode: 'no-cors'
     });
@@ -17,12 +17,12 @@ export default async function NotesPage() {
     return (
         <div>
             <h1>Notes</h1>
+            <CreateNote />
             <div className={styles.grid}>
             {notes.reverse().map((note) => {
                 return <Note key={note.id} note={note} />
             })}
             </div>
-            <CreateNote />
         </div>
     )
 }
