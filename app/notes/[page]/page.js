@@ -17,7 +17,7 @@ export default async function NotesPage({ params }) {
     let lastPage = notes.totalPages;
     return (
         <div>
-            <h1>Notes</h1>
+            <h1>{`Page ${currentPage} of Notes`}</h1>
             <div className={styles.grid}>
                 {notes.items.reverse().map((note) => {
                     return <Note key={note.id} note={note} />

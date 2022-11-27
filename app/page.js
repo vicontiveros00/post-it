@@ -17,6 +17,7 @@ return (
                 <li>Try to keep it SFW</li>
                 <li>Be respectful</li>
             </ul>
+            <p>Please report any bugs <a targe="_blank" href="https://vicontiveros00.github.io/#contact">here</a>.</p>
             <h1>Server Status:</h1>
             <CheckApi />
         </div>
