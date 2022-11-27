@@ -1,27 +1,34 @@
-//import Link from 'next/link';
-import CreateNote from './CreateNote';
-import styles from './Notes.module.css';
+import Link from 'next/link';
+import CreateNote from '../CreateNote';
+import styles from '../Notes.module.css';
 
-async function getNotes() {
-    const res = await fetch('https://notesapi.fly.dev/api/collections/notes/records', {
+async function getNotes(page) {
+    const res = await fetch(`https://notesapi.fly.dev/api/collections/notes/records/?page=${page}&perPage=30`, {
         cache: 'no-store',
         mode: 'no-cors'
     });
     const data = await res.json();
-    return data.items;
+    return data;
 }
 
-export default async function NotesPage() {
-    const notes = await getNotes();
-
+export default async function NotesPage({ params }) {
+    const notes = await getNotes(params.page);
+    const arrayOfPageLinks = [];
+    for(let i = 1; i <= notes.totalPages; i++) {
+        arrayOfPageLinks.push(i);
+    }
     return (
         <div>
-            <h1>All Notes</h1>
+            <h1>Notes</h1>
             <div className={styles.grid}>
-            {notes.reverse().map((note) => {
+            {notes.items.reverse().map((note) => {
                 return <Note key={note.id} note={note} />
             })}
             </div>
+            <CreateNote />
+            {arrayOfPageLinks.map((link) => {
+                return <Link key={link} href={`/notes/${link}`}><button>Page {link}</button></Link>
+            })} 
         </div>
     )
 }

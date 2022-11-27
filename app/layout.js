@@ -2,7 +2,16 @@
 import Link from "next/link";
 import './globals.css';
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  async function getPageNumbers() {
+    const res = await fetch('https://notesapi.fly.dev/api/collections/notes/records/', { //old url was https://notesapi.fly.dev/api/collections/notes/records/?page=1&perPage=30
+        cache: 'no-store',
+        mode: 'no-cors'
+    });
+    const data = await res.json();
+    return data.totalPages;
+  }
+
   return (
     <html>
       <head>
@@ -17,7 +26,7 @@ export default function RootLayout({ children }) {
             <Link href="/">
               Home
             </Link>
-            <Link href="/notes">
+            <Link href={`/notes/${await getPageNumbers()}`}>
               Notes
             </Link>
           </nav>
