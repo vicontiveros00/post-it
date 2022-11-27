@@ -17,6 +17,8 @@ export default async function NotesPage({ params }) {
     for(let i = 1; i <= notes.totalPages; i++) {
         arrayOfPageLinks.push(i);
     }
+    console.log(params.page);
+    console.log(arrayOfPageLinks[arrayOfPageLinks.length - 1]);
     return (
         <div>
             <h1>Notes</h1>
@@ -25,7 +27,7 @@ export default async function NotesPage({ params }) {
                 return <Note key={note.id} note={note} />
             })}
             </div>
-            <CreateNote />
+            {params.page == arrayOfPageLinks[arrayOfPageLinks.length - 1] && <CreateNote />}
             {arrayOfPageLinks.map((link) => {
                 return <Link key={link} href={`/notes/${link}`}><button>Page {link}</button></Link>
             })} 
