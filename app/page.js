@@ -20,6 +20,7 @@ return (
             <p>Please report any bugs <a target="_blank" href="https://vicontiveros00.github.io/#contact">here</a>.</p>
             <h1>Server Status:</h1>
             <CheckApi />
+            <small>v. 0.3.2 alpha</small>
         </div>
     )
 }
