@@ -37,3 +37,6 @@ next-env.d.ts
 
 #test databse
 pocketbase.exe
+
+#local database
+/pb_data

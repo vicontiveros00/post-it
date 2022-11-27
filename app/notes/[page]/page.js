@@ -3,7 +3,7 @@ import CreateNote from '../CreateNote';
 import styles from '../Notes.module.css';
 
 async function getNotes(page) {
-    const res = await fetch(`https://notesapi.fly.dev/api/collections/notes/records/?page=${page}&perPage=30`, {
+    const res = await fetch(`https://notesapi.fly.dev/api/collections/notes/records/?page=${page}&perPage=15`, {
         cache: 'no-store',
         mode: 'no-cors'
     });
@@ -13,24 +13,30 @@ async function getNotes(page) {
 
 export default async function NotesPage({ params }) {
     const notes = await getNotes(params.page);
-    const arrayOfPageLinks = [];
-    for(let i = 1; i <= notes.totalPages; i++) {
-        arrayOfPageLinks.push(i);
-    }
-    console.log(params.page);
-    console.log(arrayOfPageLinks[arrayOfPageLinks.length - 1]);
+    let currentPage = params.page;
+    let lastPage = notes.totalPages;
     return (
         <div>
             <h1>Notes</h1>
             <div className={styles.grid}>
-            {notes.items.reverse().map((note) => {
-                return <Note key={note.id} note={note} />
-            })}
+                {notes.items.reverse().map((note) => {
+                    return <Note key={note.id} note={note} />
+                })}
             </div>
-            {params.page == arrayOfPageLinks[arrayOfPageLinks.length - 1] && <CreateNote />}
-            {arrayOfPageLinks.map((link) => {
-                return <Link key={link} href={`/notes/${link}`}><button>Page {link}</button></Link>
-            })} 
+            {currentPage == lastPage && <CreateNote />}
+            <div className={styles.breadcrumb}>
+                {currentPage > 1 && 
+                    <Link href={`/notes/${currentPage - 1}`}>
+                        <button className={styles.breadcrumbbutton}>◄</button>
+                    </Link>}
+                {}
+                <p>{`Page ${currentPage} of ${lastPage}`}</p>
+                {currentPage != lastPage && 
+                    <Link href={`/notes/${Number(currentPage) + 1}`}>
+                        <button className={styles.breadcrumbbutton}>►</button>
+                    </Link>}
+                {}
+            </div>
         </div>
     )
 }
