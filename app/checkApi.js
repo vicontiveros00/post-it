@@ -7,12 +7,16 @@ export default function CheckApi() {
     const [apiStatus, setApiStatus] = useState('checking...');
 
     const checkApiStatus = async() => {
-        const res = await fetch('https://notesapi.fly.dev/api/collections/notes/records/', {
-            cache: 'no-store',
-            mode: 'no-cors'
-        });
-        console.log(res.ok);
-        !res.ok ? setApiStatus('online') : setApiStatus('offline');
+        try {
+            await fetch('https://notesapi.fly.dev/api/collections/notes/records/', {
+                cache: 'no-store',
+                mode: 'no-cors'
+            });
+            setApiStatus('online');
+        } catch (err) {
+            setApiStatus('offline');
+            console.log(err);
+        }
     }
 
     checkApiStatus();

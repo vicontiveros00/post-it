@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import CreateNote from '../CreateNote';
+import BreadCrumb from '../BreadCrumb';
 import styles from '../Notes.module.css';
 
 async function getNotes(page) {
@@ -24,19 +25,7 @@ export default async function NotesPage({ params }) {
                 })}
             </div>
             {currentPage == lastPage && <CreateNote />}
-            <div className={styles.breadcrumb}>
-                {currentPage > 1 && 
-                    <Link href={`/notes/${currentPage - 1}`}>
-                        <button className={styles.breadcrumbbutton}>◄</button>
-                    </Link>}
-                {}
-                <p>{`Page ${currentPage} of ${lastPage}`}</p>
-                {currentPage != lastPage && 
-                    <Link href={`/notes/${Number(currentPage) + 1}`}>
-                        <button className={styles.breadcrumbbutton}>►</button>
-                    </Link>}
-                {}
-            </div>
+            <BreadCrumb currentPage={currentPage} lastPage={lastPage} />
         </div>
     )
 }
