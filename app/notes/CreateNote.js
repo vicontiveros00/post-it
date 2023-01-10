@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { TailSpin } from 'react-loader-spinner';
-import styles from './Notes.module.css';
 
 export default function CreateNote() {
   const [title, setTitle] = useState('');
@@ -34,7 +33,7 @@ export default function CreateNote() {
     setContent('');
     setTitle('');
     setUserName('');
-    setNoteColor('yellow')
+    setNoteColor('#fff740')
     setIsUpdating(false)
 
     router.refresh();
@@ -92,7 +91,11 @@ export default function CreateNote() {
         value="#ff7eb9"
         onChange={(e) => setNoteColor(e.target.value)}
       /> <br />
-      <button disabled={isUpdating} type="submit" onClick={title && content ? create : undefined}>
+      <button disabled={isUpdating} type="submit" onClick={() => {
+        if (title && content && title.length <= 15 && content.length <= 150 && userName.length <= 15) {
+          create();
+        }
+      }}>
         {isUpdating ? <TailSpin padding='200' height='15' width='15' color='#fff' /> : 'Create Note'}
       </button>
     </div>

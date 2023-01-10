@@ -5,7 +5,6 @@
   }
   
   .grid {
-    margin-top: 2rem;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -84,11 +83,39 @@
   }
 
   .breadcrumb {
+    margin-top: 1rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
+  }
+
+  .pageindicator::before {
+    content: 'Page '
   }
 
   .breadcrumbbutton {
     padding: 0.5rem 0.5rem !important;
+  }
+
+  .mobileTransform {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media only screen and (max-width: 550px) {
+    .mobileTransform {
+      flex-direction: column-reverse;
+    }
+
+    .grid {
+      margin-top: 2rem;
+    }
+
+    .breadcrumb {
+      gap: 0.3rem;
+    }
+
+    .pageindicator::before {
+      content: ''
+    }
   }

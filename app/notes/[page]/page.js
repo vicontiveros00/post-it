@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import CreateNote from '../CreateNote';
 import BreadCrumb from '../BreadCrumb';
 import styles from '../Notes.module.css';
@@ -16,15 +15,20 @@ export default async function NotesPage({ params }) {
     const notes = await getNotes(params.page);
     let currentPage = params.page;
     let lastPage = notes.totalPages;
+    const mainContent = (
+        <div className={styles.grid}>
+            {notes.items.reverse().map((note) => {
+                return <Note key={note.id} note={note} />
+            })}
+        </div>
+    )
     return (
         <div>
             <h1>{`Page ${currentPage} of Notes`}</h1>
-            <div className={styles.grid}>
-                {notes.items.reverse().map((note) => {
-                    return <Note key={note.id} note={note} />
-                })}
+            <div className={styles.mobileTransform}>
+                {mainContent}
+                {currentPage == lastPage && <CreateNote />}
             </div>
-            {currentPage == lastPage && <CreateNote />}
             <BreadCrumb currentPage={currentPage} lastPage={lastPage} />
         </div>
     )
@@ -43,7 +47,7 @@ function Note({ note }) {
             <h2>{title}</h2>
             <h6 className={styles.username}>{username}</h6>
             <h5>{content}</h5>
-            <p>{date.toLocaleString('en-GB', {
+            <p>{date.toLocaleString('fi-FI', {
                 dateStyle: 'short',
                 timeStyle: 'short'
             })}</p>
