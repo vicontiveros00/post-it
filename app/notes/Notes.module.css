@@ -30,6 +30,7 @@
     border-radius: 2px;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    color: #000;
   }
 
   .note::-webkit-scrollbar {

@@ -41,7 +41,7 @@ const CreateNote = () => {
 
   return (
     <div>
-      <h3>Create a new Note</h3>
+      <h3>Add a new note:</h3>
       <input
         type="text"
         maxLength="30"
