@@ -2,9 +2,9 @@
 import Link from "next/link";
 import './globals.css';
 
-export default async function RootLayout({ children }) {
-  async function getPageNumbers() {
-    const res = await fetch('https://notesapi.fly.dev/api/collections/notes/records/?perPage=15', { //old url was https://notesapi.fly.dev/api/collections/notes/records/?page=1&perPage=30
+const RootLayout = async({ children }) => {
+  const getPageNumbers = async() => {
+    const res = await fetch('https://notesapi.fly.dev/api/collections/notes/records/?perPage=15', {
         cache: 'no-store',
         mode: 'no-cors'
     });
@@ -17,7 +17,7 @@ export default async function RootLayout({ children }) {
       <head>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1" />
         <title>Post It</title>
       </head>
       <body>
@@ -36,3 +36,5 @@ export default async function RootLayout({ children }) {
     </html>
   );
 }
+
+export default RootLayout;

@@ -3,7 +3,7 @@
 import './globals.css';
 import { useEffect, useState } from 'react';
 
-export default function CheckApi() {
+const CheckApi = () => {
     const [apiStatus, setApiStatus] = useState('checking...');
 
     useEffect(() => {
@@ -40,3 +40,5 @@ export default function CheckApi() {
         </>
     )
 }
+
+export default CheckApi;

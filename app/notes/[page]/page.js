@@ -1,8 +1,9 @@
 import CreateNote from '../CreateNote';
 import BreadCrumb from '../BreadCrumb';
 import styles from '../Notes.module.css';
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
-async function getNotes(page) {
+const getNotes = async(page) => {
     const res = await fetch(`https://notesapi.fly.dev/api/collections/notes/records/?page=${page}&perPage=15`, {
         cache: 'no-store',
         mode: 'no-cors'
@@ -11,7 +12,7 @@ async function getNotes(page) {
     return data;
 }
 
-export default async function NotesPage({ params }) {
+const NotesPage = async({ params }) => {
     const notes = await getNotes(params.page);
     let currentPage = params.page;
     let lastPage = notes.totalPages;
@@ -34,7 +35,7 @@ export default async function NotesPage({ params }) {
     )
 }
 
-function Note({ note }) {
+const Note = ({ note }) => {
     const { title, content, username, notecolor, created, admin } = note || {};
     const date = new Date(created) || null;
     const adminGlow = `4px 4px 12px #fc8b8b, -4px -4px 12px #fc8b8b, 4px -4px 12px #fc8b8b, -4px 4px 12px #fc8b8b`;
@@ -46,7 +47,11 @@ function Note({ note }) {
             }}>
             <h2>{title}</h2>
             <h6 className={styles.username}>{username}</h6>
-            <h5>{content}</h5>
+            <h5>
+                <ReactMarkdown>
+                    {content}
+                </ReactMarkdown>
+            </h5>
             <p>{date.toLocaleString('fi-FI', {
                 dateStyle: 'short',
                 timeStyle: 'short'
@@ -54,3 +59,5 @@ function Note({ note }) {
         </div>
     )
 }
+
+export default NotesPage

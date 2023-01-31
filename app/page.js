@@ -1,8 +1,11 @@
 import CheckApi from "./checkApi";
 import styles from './notes/Notes.module.css';
+import Package from '../package.json' assert {
+    type: 'json'
+}
 
 
-export default function HomePage() {
+const HomePage = () => {
 return (
         <div>
             <h1>Post It</h1>
@@ -25,7 +28,9 @@ return (
             <p>Please report any bugs <a target="_blank" href="https://vicontiveros00.github.io/#contact">here</a>.</p>
             <h1>Server Status:</h1>
             <CheckApi />
-            <small>v. 0.3.4 alpha</small>
+            <small>v. {Package.version} alpha</small>
         </div>
     )
 }
+
+export default HomePage

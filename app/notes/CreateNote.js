@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { TailSpin } from 'react-loader-spinner';
 
-export default function CreateNote() {
+const CreateNote = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [userName, setUserName] = useState('');
@@ -44,20 +44,20 @@ export default function CreateNote() {
       <h3>Create a new Note</h3>
       <input
         type="text"
-        maxLength="15"
+        maxLength="30"
         placeholder="Title *"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <input
         type="text"
-        maxLength="15"
+        maxLength="30"
         placeholder="User Name (Optional)"
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
       />
       <textarea
-        placeholder="Content * (150 max)" maxLength="150"
+        placeholder="Content * (300 max)" maxLength="300"
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
@@ -92,7 +92,7 @@ export default function CreateNote() {
         onChange={(e) => setNoteColor(e.target.value)}
       /> <br />
       <button disabled={isUpdating} type="submit" onClick={() => {
-        if (title && content && title.length <= 15 && content.length <= 150 && userName.length <= 15) {
+        if (title && content && title.length <= 30 && content.length <= 300 && userName.length <= 30) {
           create();
         }
       }}>
@@ -101,3 +101,5 @@ export default function CreateNote() {
     </div>
   );
 }
+
+export default CreateNote;

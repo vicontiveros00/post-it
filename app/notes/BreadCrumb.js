@@ -5,7 +5,7 @@ import Link from 'next/link';
 import styles from './Notes.module.css';
 import { TailSpin } from 'react-loader-spinner';
 
-export default function BreadCrumb(props) {
+const BreadCrumb = (props) => {
     const [ goingBack, setGoingBack] = useState(false);
     const [ goingForward, setGoingForward ] = useState(false);
     const [ goingToFirst, setGoingToFirst ] = useState(false);
@@ -48,3 +48,5 @@ export default function BreadCrumb(props) {
         </div>
     )
 }
+
+export default BreadCrumb;

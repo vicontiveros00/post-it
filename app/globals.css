@@ -86,3 +86,7 @@
   input[id='green'] {
     accent-color: #82ffa3;
   }
+
+  img {
+    max-width: 100%;
+  }
