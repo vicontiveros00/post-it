@@ -1,6 +1,6 @@
 {
   "name": "notes",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "homepage": "https://post-it-topaz.vercel.app/",
   "private": true,
   "scripts": {
