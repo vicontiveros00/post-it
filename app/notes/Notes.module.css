@@ -31,6 +31,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     color: #000;
+    word-wrap: break-word;
   }
 
   .note::-webkit-scrollbar {
